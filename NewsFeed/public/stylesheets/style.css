@@ -1,0 +1,280 @@
+/* ============================ global ============================ */
+
+/* add transition animation */
+* {
+  transition: all 0.15s;
+}
+
+/* clear default styling of button from browsers */
+button {
+  border: none;
+  background-color: white;
+}
+
+/* limit width of HTML body and center it */
+body {
+  margin: auto;
+  max-width: 720px;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/* remove default underline of hyperlinks */
+a {
+  text-decoration: none;
+}
+
+/* change cursor type to pointer when over a button or link */
+button:hover, a:hover {
+  cursor: pointer;
+}
+
+/* basic flex containers styling */
+#header, #pageindex, #post_comment_container, .comment_meta, #entry_header, .login_row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* ============================ buttons ============================ */
+
+/* these buttons share the same styling */
+
+#header button:hover, #header a:hover, .comment_button, #login_submit {
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 2px;
+}
+
+#header a, .comment_button, #login_submit {
+  padding: 0.5em 1em;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 0.5em;
+  background-color: rgba(21, 105, 231, 1);
+  color: white;
+  font-size: 110%;
+  text-align:center;
+  vertical-align: middle;
+}
+
+#header a:hover, .comment_button:hover, #login_submit:hover {
+  background-color: rgb(69, 135, 235);
+}
+
+/* change button width based on screen width */ 
+@media screen and (max-width: 600px) {
+  #header a, #header button, .comment_button {
+    width: 100%;
+  }
+}
+
+/* ============================ cards ============================ */
+
+/* containers of news entry and comments share the same "card" style display */
+
+#news div, .comment_container {
+  margin: 1.5em 0;
+  padding: 1em 1em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 1em;
+}
+
+#news div:hover, .comment_container:hover {
+  background-color: rgba(110, 58, 58, 0.02);
+}
+
+/* ============================ newsfeed.html ============================ */
+
+/* header division */
+
+#header {
+  justify-content: flex-end;
+  align-items: stretch;
+  column-gap: 2em;
+  row-gap: 1em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 1em;
+}
+
+#header * {
+  border-radius: 0.2em;
+}
+
+#header input {
+  flex-grow: 1;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.2);
+  padding: 0.5em;
+}
+
+#header input:focus, #header input:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#header button  {
+  padding: 0.5em 1em;
+  border: 1px solid rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.08);
+  font-size: 110%;
+  color:black;
+  text-align:center;
+}
+
+/* news division */
+
+#news {
+  padding: 0 1em 0.5em 1em;
+}
+
+.news_headline {
+  color: rgb(0, 81, 173);
+  font-size: 150%;
+}
+
+.news_headline:hover {
+  color: rgb(73, 154, 247);
+}
+
+.news_time {
+  font-size: 80%;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.news_content {
+  font-size: 100%;
+  margin: 1em 0 0 0;
+}
+
+/* pageindex division */
+
+#pageindex, #post_comment_container {
+  justify-content: center;
+  align-items: stretch;
+  column-gap: 2em;
+  row-gap: 1em;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding-top: 1em;
+}
+
+#pageindex button {
+  width: 2.5em;
+  height: 2.5em;
+  text-decoration: underline;
+}
+
+#pageindex button:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+#pageindex .highlight, #pageindex .highlight:hover {
+  color: rgb(0, 81, 173);
+}
+
+/* ============================ news entry page ============================ */
+
+#entry_back_button {
+  font-size: 200%;
+}
+
+#entry_headline {
+  font-size: 200%;
+}
+
+#entry_time {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+#entry_content {
+  margin: 2em 0;
+}
+
+#comments {
+  margin-top: 5em;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding-top: 1em;
+}
+
+.comment_container img {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+}
+
+.comment_meta, #entry_header {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 1em;
+  align-items: center;
+}
+
+/* only allow entry header to wrap around when screen width is small */
+@media screen and (max-width: 600px) {
+  #entry_header {
+    flex-wrap: wrap;
+  }
+}
+
+#entry_header {
+  column-gap: 3em;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.comment_name {
+  color: rgb(0, 40, 85);
+}
+
+.comment_time {
+  margin-left: auto;
+  font-size: 80%;
+  color: rgba(0,0,0,0.8);
+}
+
+#comment_input {
+  resize: none;
+  flex-grow: 1;
+  padding: 0.5em 1em;;
+}
+
+/* ============================ login page ============================ */
+
+#login_heading {
+  text-align: center;
+  font-size: 150%;
+}
+
+#login_container {
+  max-width: 400px;
+  padding: 2em;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 1em;
+  background-color: rgba(0,0, 0, 0.02);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.login_row {
+  justify-content: center;
+  column-gap: 1em;
+  align-items: center;
+}
+
+.login_row input {
+  width: auto;
+  max-width: fit-content;
+}
+
+#login_submit {
+  margin-top: 1em;
+}
+
+#back_button_container {
+  box-sizing: border-box;
+  margin-top: 2em;
+  padding-top: 1em;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
